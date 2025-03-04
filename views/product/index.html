@@ -37,16 +37,18 @@
     <div class="container mt-3"> 
         <h2>List Category</h2>
         <hr>
-        <a href="/categories/add" class="btn btn-primary">Add Category</a>
+        <a href="/products/add" class="btn btn-primary">Add Product</a>
         <table class="table table-bordered mt-2 text-center">
             <thead>
                 <tr>
                     <th>Name</th>
+                    <th>Category</th>
+                    <th>Stock</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                {{ range .categories }}
+                <!-- {{ range .categories }}
                     <tr>
                         <td> {{ .Name }} </td>
                         <td>
@@ -54,7 +56,7 @@
                             <a href="/categories/delete?id={{ .Id }}" class="btn btn-danger text-light>Delete" onclick="return confirm('Are you sure to delete thi category')">Delete</a>
                         </td>
                     </tr>
-                {{ end }}
+                {{ end }} -->
             </tbody>
         </table>
     </div>
