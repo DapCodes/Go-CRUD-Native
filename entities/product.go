@@ -8,6 +8,6 @@ type Product struct {
 	Category    Category
 	Stock       int64
 	Description string
-	CreateAt    time.Time
-	UpdateAt    time.Time
+	CreatedAt   time.Time
+	UpdatedAt   time.Time
 }

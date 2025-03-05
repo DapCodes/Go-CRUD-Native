@@ -49,46 +49,57 @@
     <!-- End of Navbar -->
 
     <div class="container mt-3">
-      <h2>List Products</h2>
-      <hr />
-      <a href="/products/add" class="btn btn-primary">Add Product</a>
-      <table class="table table-bordered mt-2 text-center">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Stock</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{range .products}}
-          <tr>
-            <td>{{.Name}}</td>
-            <td>{{.Category.Name}}</td>
-            <td>{{.Stock}}</td>
-            <td>
-              <a
-                href="/products/detail?id={{.Id}}"
-                class="btn btn-sm btn-info text-light"
-                >Detail</a
+      <div class="row d-flex justify-content-center">
+        <div class="col-4">
+          <h2>Detail Product</h2>
+          <hr />
+
+          <form action="/products/add" method="POST">
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                value="{{ .product.Name}}"
+                disabled
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Category</label>
+              <input
+                type="text"
+                class="form-control"
+                value="{{ .product.Category.Name}}"
+                disabled
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Stock</label>
+              <input
+                type="number"
+                class="form-control"
+                name="stock"
+                value="{{ .product.Stock}}"
+                disabled
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Description</label>
+              <textarea
+                class="form-control"
+                name="description"
+                rows="3"
+                disabled
               >
-              <a
-                href="/products/edit?id={{.Id}}"
-                class="btn btn-sm btn-warning text-light"
-                >Edit</a
+{{.product.Description}}</textarea
               >
-              <a
-                href="/products/delete?id={{.Id}}"
-                onclick="return confirm('Are you sure want to delete this product ?')"
-                class="btn btn-sm btn-danger"
-                >Delete</a
-              >
-            </td>
-          </tr>
-          {{end}}
-        </tbody>
-      </table>
+            </div>
+            <div class="float-end">
+              <a href="/products" class="btn btn-secondary">Back</a>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
